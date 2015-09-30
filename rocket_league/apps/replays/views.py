@@ -193,7 +193,7 @@ class ReplayPackDownloadView(SingleObjectMixin, View):
 
 
 # API ViewSets
-class ReplayViewSet(viewsets.ReadOnlyModelViewSet):
+class ReplayViewSet(viewsets.ModelViewSet):
     """
     Returns a list of all processed replays in the system.
     """

@@ -284,7 +284,7 @@ REDACTOR_OPTIONS = {
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
 }
 
@@ -328,6 +328,7 @@ PLAYLISTS = {
     'RankedDoubles': 11,
     'RankedStandard': 12,
 }
+
 
 if 'test' in sys.argv:
     # The CMS tests use test-only models, which won't be loaded if we only load

@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.timezone import now
 
 
 class Profile(models.Model):
@@ -18,9 +17,31 @@ class Profile(models.Model):
             }
 
 
+class SteamUser(models.Model):
+
+    steam_id = models.CharField(
+        primary_key=True,
+        max_length=64,
+    )
+
+    username = models.CharField(
+        max_length=255,
+    )
+
+
 class LeagueRating(models.Model):
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(
+        User,
+        blank=True,
+        null=True,
+    )
+
+    steam_user = models.ForeignKey(
+        SteamUser,
+        null=True,
+        blank=True,
+    )
 
     duels = models.PositiveIntegerField()
 

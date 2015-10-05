@@ -305,7 +305,7 @@ class Replay(models.Model):
             parser = ReplayParser()
 
             try:
-                replay_data = parser.parse(self.file)
+                replay_data = parser.parse(self.file)['header']
 
                 # Check if this replay has already been uploaded.
                 replay = Replay.objects.filter(
@@ -316,7 +316,8 @@ class Replay(models.Model):
                     raise ValidationError(mark_safe("This replay has already been uploaded, <a href='{}'>you can view it here</a>.".format(
                         replay[0].get_absolute_url()
                     )))
-            except struct.error:
+            except TypeError as e:
+                print e
                 raise ValidationError("The file you selected does not seem to be a valid replay file.")
 
     def save(self, *args, **kwargs):
@@ -327,7 +328,7 @@ class Replay(models.Model):
         if self.file and not self.processed:
             # Process the file.
             parser = ReplayParser()
-            data = parser.parse(self)
+            data = parser.parse(self)['header']
 
             Goal.objects.filter(
                 replay=self,

@@ -97,7 +97,7 @@ function animate () {
 
   render()
 
-  const fpsLimit = 30 // Cap at 30 FPS.
+  const fpsLimit = document.getElementById("fpsSlider").value // Get FPS from slider.
   const timeoutDelay = 1000 / fpsLimit
 
   setTimeout(() => {

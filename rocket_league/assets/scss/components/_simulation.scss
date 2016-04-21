@@ -1,7 +1,7 @@
 .sim-Outer {
   position: relative;
 
-  margin-bottom: 30px;
+  margin-bottom: 100px;
   padding-top: 110px;
   padding-bottom: 110px;
 }
@@ -212,4 +212,21 @@
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v67+PwAIDQMtnSQatAAAAABJRU5ErkJggg==);
     background-position: right;
   }
+}
+
+.sim-FPS_Outer {
+  margin-top: 30px;
+  width: 34%;
+  display: flex;
+}
+
+.sim-FPS_Label {
+  width: auto;
+  padding-right: 15px;
+  font-weight: 600;
+}
+
+.sim-FPS_Controls {
+  width: auto !important;
+  flex-grow: 1;
 }

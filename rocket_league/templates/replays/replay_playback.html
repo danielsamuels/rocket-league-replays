@@ -41,7 +41,6 @@
                     <div class="sim-Timer_Score sim-Timer_Score-0">0</div>
                     <div class="sim-Timer_Value">0:00</div>
                     <div class="sim-Timer_Score sim-Timer_Score-1">0</div>
-                    <input id="fpsSlider" type="range" value="30" min="10" max="120" style="position: relative; top: -20px;">
                 </div>
 
                 <div class="sim-Timeline_Outer">
@@ -53,10 +52,16 @@
                             <div class="sim-Timeline_Marker sim-Timeline_Marker-{{ goal.player.team }}" data-frame="{{ goal.frame }}" style="left: {% widthratio goal.frame replay.num_frames 100 %}%"></div>
                         {% endfor %}
                     </div>
+
+                    <div class="sim-FPS_Outer">
+                        <label class="sim-FPS_Label">Play speed (<span class="sim-FPS_Value">30</span> FPS):</label>
+                        <input class="sim-FPS_Controls" type="range" value="30" min="10" max="120">
+                    </div>
                 </div>
                 <div class="sim-Boost sim-Boost-team0"></div>
                 <div class="sim-Boost sim-Boost-team1"></div>
             </div>
+
 
             {% compress js %}
             <script>

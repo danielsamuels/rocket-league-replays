@@ -425,7 +425,7 @@ def parse_replay_netstream(replay_id):
 
                 os.system(command)
 
-            replay = json.loads(subprocess.check_output('rattletrap-binaries/rattletrap-*-osx decode {}'.format(
+            replay = json.loads(subprocess.check_output('rattletrap-binaries/rattletrap-*-osx -i {}'.format(
                 replay_obj.file.path
             ), shell=True).decode('utf-8'))
         else:
@@ -438,7 +438,7 @@ def parse_replay_netstream(replay_id):
 
             os.system(command)
 
-            replay = json.loads(subprocess.check_output('rattletrap-binaries/rattletrap-*-linux decode /tmp/{}'.format(
+            replay = json.loads(subprocess.check_output('rattletrap-binaries/rattletrap-*-linux -i /tmp/{}'.format(
                 replay_name,
             ), shell=True).decode('utf-8'))
 
